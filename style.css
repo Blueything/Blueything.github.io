@@ -1,3 +1,9 @@
+body{
+justify-content:center;
+  align-ccontent:center;
+}
 h1{
 color:red;
+  text-shadow:0 0 4px orange,
+              0 0 9px yellow;
 }
