@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blueything Animation</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f0f0f0;
+        }
+        .animation-container {
+            text-align: center;
+        }
+        #animated-text {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #5555ff;
+            animation: expandAndColorChange 5s infinite;
+        }
+        @keyframes expandAndColorChange {
+            0%, 100% {
+                font-size: 2rem;
+                color: #5555ff;
+            }
+            50% {
+                font-size: 4rem;
+                color: #ff5555;
+            }
+        }
+    </style>
 </head>
 <body>
-     <h1>Blueything dojo</h1>
+    <div class="animation-container">
+        <h1 id="animated-text">Blueything</h1>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const text = document.getElementById('animated-text');
+            let size = 2; // Initial font size in rem
+
+            function growText() {
+                let newSize = size + 0.5;
+                if (newSize > 4) newSize = 2; // Reset to min size if it grows too large
+                size = newSize;
+                text.style.fontSize = `${size}rem`;
+            }
+
+            setInterval(growText, 1000); // Grow text every second
+        });
+    </script>
 </body>
 </html>
